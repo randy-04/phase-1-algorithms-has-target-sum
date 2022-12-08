@@ -2,16 +2,17 @@ function hasTargetSum(array, target) {
   // Write your algorithm here
   // look through array from the first digit
   for (let i = 0; i < array.length; i++) {
-    // look through the rest of the array
-    for (let j=i+1; j <array.length; j++) {
-      // adding i and j
-      const sum = array[i] + array[j]
-      if (sum === target) {
+    // look through the rest of the array for the complement number
+    const complement = target - array[i];
+    // iterating over remaining elements
+    for (let j=i+1; j < array.length; j++) {
+      // check for complements in the remaining elements
+      if (array[j] === complement) {
         return true;
       }
-      
     }
   }
+  return false;
 }
 
 /* 
